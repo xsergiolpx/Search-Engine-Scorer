@@ -1,5 +1,0 @@
-Stemmer	Scorer	Field	Average-R-Precision
-default-BM25Scorer-text	0.264068375922
-default-BM25Scorer-text_and_title	0.257101527791
-default-BM25Scorer-title	0.184699190734
-default-CountScorer-text	0.0180774532068
