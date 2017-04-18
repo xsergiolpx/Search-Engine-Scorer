@@ -1,0 +1,31 @@
+Pointers
+=========
+Upper bits: 2539 (317B, 29,97%)
+Lower bits: 5922 (740B, 69,91%)
+Skip pointers bits: 9 (1B, 0,11%)
+Additional bits: 1 (0B, 0,01%)
+Overall bits: 8471 (1,06KB)
+
+Bits per pointer: 10,00 (10,01 with skips)
+
+Counts
+=========
+Upper bits: 846 (105B, 98,95%)
+Lower bits: 0 (0B, 0,00%)
+Skip pointers bits: 9 (1B, 1,05%)
+Additional bits: 0 (0B, 0,00%)
+Overall bits: 855 (106B)
+
+Bits per count: 1,00 (1,01 with skips)
+
+Positions
+=========
+Upper bits: 1269 (158B, 59,05%)
+Lower bits: 0 (0B, 0,00%)
+Skip pointers bits: 9 (1B, 0,42%)
+Additional bits: 871 (108B, 40,53%)
+Overall bits: 2149 (268B)
+
+Bits per position: 2,53 (2,54 with skips)
+
+Size: 11475 bits (1,43KB)

@@ -1,7 +1,26 @@
 #!/bin/bash
 
+if [ "$1" = "--cran" ]
+then
+	dir=../Cranfield_DATASET/cran
+	directory="collection-cran"
+	truth="../Cranfield_DATASET/cran_all_queries.tsv"
+elif [ "$1" = "--time" ]
+then
+	dir=../Time_DATASET/time
+        directory="collection-time"
+        truth="../Time_DATASET/time_all_queries.tsv"
+else 
+	echo "Use --cran or --time"
+fi
+
+if [ "$1" = "--cran" ] || [ "$1" = "--time" ]
+then
+
 # Folder with html files
-dir=Cranfield_DATASET/cran
+
+# change the working directory
+cd $directory
 
 # Set the collection
 echo
@@ -29,7 +48,9 @@ java it.unimi.di.big.mg4j.tool.IndexBuilder -t homework.EnglishStemmerStopwords 
 
 wait
 
+cd ..
+
 echo
 echo "Done!!"
 
-
+fi

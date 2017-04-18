@@ -1,15 +1,16 @@
 import pandas as pd
 import numpy as np
 import glob, os
+import sys
 
-def file_list():
+def file_list(root_dir):
     '''
     Shows the output-* files from the current directory
     :return: the list of namefiles
     '''
     lst = []
     os.chdir(".")
-    for file in glob.glob("output-*"):
+    for file in glob.glob(root_dir + "output-*"):
         lst.append(file)
     return lst
 
@@ -23,9 +24,18 @@ def save_to_tsv(header, filename, opt="w"):
     :param opt: w is write new file, a is append
     :return: nothing
     """
+#    header = header.split("/")[-1]
     with open(filename, opt) as f:
         f.write("\t".join(header))
         f.write("\n")
+
+def bootstrap_mean(data, B=1000):
+    mean_boot = []
+    for _ in range(0,B):
+        samp = np.random.choice(data, size=len(data), replace=True)
+        mean_boot.append(np.mean(samp))
+    return (np.mean(mean_boot))
+
 
 def mean_r_precision(scorer_file, truth_file):
     '''
@@ -57,22 +67,37 @@ def mean_r_precision(scorer_file, truth_file):
         if R != 0:
             precision.append(r/R)
     return(np.mean(precision))
+    #return(bootstrap_mean(precision, B=10000))
 
+# Work with cran or time
+col = sys.argv[1]
+
+if col == "--cran":
+    truth_file = "./Cranfield_DATASET/cran_Ground_Truth.tsv"
+    # Output file
+    root_dir = "collection-cran/"
+    filename = "collection-cran/results_cran.tsv"
+
+elif col == "--time":
+    truth_file="./Time_DATASET/time_Ground_Truth.tsv"
+    # Output file
+    root_dir = "collection-time/"
+    filename = "collection-time/results_time.tsv"
+
+else:
+    print("Use --cran or --time")
+    exit()
 
 # Create new tsv
-header = ["Stemmer", "Scorer", "Field", "Average-R-Precision"]
-
-# Filename of the output
-filename = "collection1.tsv"
+header = ["Stemmer-Scorer-Field", "Average-R-Precision"]
 
 # Create a new file with the header
 save_to_tsv(header, filename)
 
 # Ground truth file
-truth_file = "Cranfield_DATASET/cran_Ground_Truth.tsv"
 
 # List all the output files
-files_name = file_list()
+files_name = file_list(root_dir)
 i_max = len(files_name)
 i = 0
 
@@ -81,7 +106,9 @@ print("Calculating the Average R-Precision:\n")
 for scorer_file in files_name:
     i += 1
     m = mean_r_precision(scorer_file, truth_file)
-    info = scorer_file.replace("output-","").replace(".tsv","").split("-") + [str(m)]
+    scorer_file = scorer_file.split("/")[-1]
+#    info = scorer_file.replace("output-","").replace(".tsv","").split("-") + [str(m)]
+    info = [scorer_file.replace("output-","").replace(".tsv","")] + [str(m)]
     save_to_tsv(info, filename, "a")
     print("[" + str(i) + "/" +  str(i_max) +"] " + scorer_file , round(float(info[-1]),2))
 print("\nDone!!")
