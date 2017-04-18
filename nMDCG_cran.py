@@ -76,7 +76,7 @@ for i in range(n):
     print(docs[i],nMDCG(query,k))
 
 
-with open('collection-cran\\'+'nMDCG-' + str(k) + '.csv','w') as f1:
+with open('collection-cran\\'+'nMDCG-' + str(k) + '.tsv','w') as f1:
     writer=csv.writer(f1, delimiter='\t',lineterminator='\n',)
     writer.writerow(["file","average nMDCG"])
     for i in range(n):
