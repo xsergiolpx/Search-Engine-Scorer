@@ -68,7 +68,6 @@ def nMDCG(query,k):
                 so.append(0)
         fin=rel[a]+sum(so)
         finale.append(fin/m)
-        #newList = [x/m for x in finale]  
     return(np.mean(finale[1:]))
 
 for i in range(n):
@@ -83,5 +82,3 @@ with open('collection-time\\'+'nMDCG-' + str(k) + '.csv','w') as f1:
         query=pd.DataFrame.from_csv(docs[i],sep="\t")
         row = docs[i],nMDCG(query,k)
         writer.writerow(row)
-
-#print(pd.read_csv('nMDCG.csv',sep="\t"))
