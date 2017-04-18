@@ -1,0 +1,10 @@
+file	average nMDCG
+collection-time\output-default-BM25Scorer-text_and_title.tsv	0.161740506314
+collection-time\output-default-CountScorer-text_and_title.tsv	0.0203740469618
+collection-time\output-default-TfIdfScorer-text_and_title.tsv	0.134184717847
+collection-time\output-english-BM25Scorer-text_and_title.tsv	0.170396765674
+collection-time\output-english-CountScorer-text_and_title.tsv	0.0196636016775
+collection-time\output-english-TfIdfScorer-text_and_title.tsv	0.142462732887
+collection-time\output-stopwords-BM25Scorer-text_and_title.tsv	0.169598044297
+collection-time\output-stopwords-CountScorer-text_and_title.tsv	0.110881563866
+collection-time\output-stopwords-TfIdfScorer-text_and_title.tsv	0.143981111873
