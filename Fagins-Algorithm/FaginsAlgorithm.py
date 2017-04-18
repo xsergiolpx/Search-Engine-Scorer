@@ -126,7 +126,9 @@ def main():
         dfs.append(pd.read_csv(filename, sep='\t', usecols=['Query_ID', 'Doc_ID', 'Rank', 'Score']))
 
     # clean the output file
-    open(output_file, 'w').close()
+    columns = ['Query_ID', 'Doc_ID', 'Rank', 'Score']
+    empty_df = pd.DataFrame(columns=columns)
+    empty_df.to_csv(output_file, index=False, sep='\t')
 
     # execute the Fagin's Algorithm for each query of each document
     query_ids = dfs[0]['Query_ID'].unique()
