@@ -40,6 +40,7 @@ class FaginsAlgorithm:
                         # stop the execution when K total hit is reached
                         if self.n_total_hit == self.k:
                             self.select_top_k()
+                            self.set_rank()
                             return self.result
             i += 1
 
@@ -61,8 +62,18 @@ class FaginsAlgorithm:
         #        ('359.0', (1.0, 359.0, 7.0, 14.590144564103138)).
         od = OrderedDict()
         for i in range(self.k):
+            # get the first 4 elements of the tuple (which are the values present in the input dataframe)
             od[l[i][0]] = l[i][1][:4]
         self.result = od
+
+    # After getting the top k elements, the Rank field has the old values and has to be correct
+    def set_rank(self):
+        i = 1
+        for item in self.result.keys():
+            l = list(self.result[item])
+            l[2] = i
+            self.result[item] = tuple(l)
+            i += 1
 
 
 # a new 'sum' function was defined because the built-in sum doesn't implicitly sum string and number in the
