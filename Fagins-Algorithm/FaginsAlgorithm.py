@@ -101,6 +101,10 @@ def output(top_k_dict, output_file):
 
 def main():
     # reading all the parameters from the terminal
+    # parameters' shape:
+    # [k] [number of files/dataset] [weight of the i-th dataframe score separete by space] [output directory]
+    # Ex:
+    # 5 2 ../collection-cran/output-stopwords-BM25Scorer-title.tsv ../collection-cran/output-stopwords-BM25Scorer-text.tsv 2 1 ../collection-cran/output-fagins.tsv
     k = int(sys.argv[1])
     total_files = int(sys.argv[2])
     filenames = []
