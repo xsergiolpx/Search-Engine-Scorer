@@ -1,0 +1,10 @@
+default-CountScorer-text_and_title	0.0246189422914
+default-TfIdfScorer-text_and_title	0.179327875018
+english-CountScorer-text_and_title	0.0277202578927
+fagins	0.214001886847
+stopwords-TfIdfScorer-text_and_title	0.19088393916
+default-BM25Scorer-text_and_title	0.254943038133
+english-TfIdfScorer-text_and_title	0.189350907454
+stopwords-CountScorer-text_and_title	0.156353294715
+stopwords-BM25Scorer-text_and_title	0.266473977681
+english-BM25Scorer-text_and_title	0.26239166584

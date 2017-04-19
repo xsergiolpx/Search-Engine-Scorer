@@ -5,12 +5,12 @@ import sys
 import glob,os
 import csv
 
-gt=pd.DataFrame.from_csv("Time_DATASET\time_Ground_Truth.tsv",sep="\t")
+gt=pd.DataFrame.from_csv("Time_DATASET/time_Ground_Truth.tsv",sep="\t")
 
 def file_list():
     l=[]
     os.chdir(".")
-    for file in glob.glob("collection-time\*text_and_title*"):
+    for file in glob.glob("collection-time/*text_and_title*"):
         l.append(file)
     return l
 
@@ -75,7 +75,7 @@ for i in range(n):
     print(docs[i],nMDCG(query,k))
 
 
-with open('collection-time\\'+'nMDCG-' + str(k) + '.csv','w') as f1:
+with open('collection-time/'+'nMDCG-' + str(k) + '.csv','w') as f1:
     writer=csv.writer(f1, delimiter='\t',lineterminator='\n',)
     writer.writerow(["file","average nMDCG"])
     for i in range(n):

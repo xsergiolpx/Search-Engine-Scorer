@@ -5,12 +5,12 @@ import sys
 import glob,os
 import csv
 
-gt=pd.DataFrame.from_csv("Cranfield_DATASET\cran_Ground_Truth.tsv",sep="\t")
+gt=pd.DataFrame.from_csv("Cranfield_DATASET/cran_Ground_Truth.tsv",sep="\t")
 
 def file_list():
     l=[]
     os.chdir(".")
-    for file in glob.glob("collection-cran\*text_and_title*"):
+    for file in glob.glob("collection-cran/*text_and_title*"):
         l.append(file)
     return l
 
@@ -75,11 +75,10 @@ for i in range(n):
     print(docs[i],nMDCG(query,k))
 
 
-with open('collection-cran\\'+'nMDCG-' + str(k) + '.tsv','w') as f1:
+with open('collection-cran/'+'nMDCG-' + str(k) + '.tsv','w') as f1:
     writer=csv.writer(f1, delimiter='\t',lineterminator='\n',)
     writer.writerow(["file","average nMDCG"])
     for i in range(n):
         query=pd.DataFrame.from_csv(docs[i],sep="\t")
         row = docs[i],nMDCG(query,k)
         writer.writerow(row)
-

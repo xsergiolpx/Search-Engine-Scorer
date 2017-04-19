@@ -29,13 +29,6 @@ def save_to_tsv(header, filename, opt="w"):
         f.write("\t".join(header))
         f.write("\n")
 
-def bootstrap_mean(data, B=1000):
-    mean_boot = []
-    for _ in range(0,B):
-        samp = np.random.choice(data, size=len(data), replace=True)
-        mean_boot.append(np.mean(samp))
-    return (np.mean(mean_boot))
-
 
 def mean_r_precision(scorer_file, truth_file):
     '''
@@ -67,7 +60,6 @@ def mean_r_precision(scorer_file, truth_file):
         if R != 0:
             precision.append(r/R)
     return(np.mean(precision))
-    #return(bootstrap_mean(precision, B=10000))
 
 # Work with cran or time
 col = sys.argv[1]
@@ -107,8 +99,9 @@ for scorer_file in files_name:
     i += 1
     m = mean_r_precision(scorer_file, truth_file)
     scorer_file = scorer_file.split("/")[-1]
-#    info = scorer_file.replace("output-","").replace(".tsv","").split("-") + [str(m)]
     info = [scorer_file.replace("output-","").replace(".tsv","")] + [str(m)]
     save_to_tsv(info, filename, "a")
     print("[" + str(i) + "/" +  str(i_max) +"] " + scorer_file , round(float(info[-1]),2))
-print("\nDone!!")
+print("\nDone!!\n")
+
+print("Results exported to " + filename)

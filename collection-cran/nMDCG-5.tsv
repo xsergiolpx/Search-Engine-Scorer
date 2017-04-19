@@ -1,10 +1,10 @@
 file	average nMDCG
-collection-cran\output-default-BM25Scorer-text_and_title.tsv	0.303119357166
-collection-cran\output-default-CountScorer-text_and_title.tsv	0.0290467379856
-collection-cran\output-default-TfIdfScorer-text_and_title.tsv	0.21199297455
-collection-cran\output-english-BM25Scorer-text_and_title.tsv	0.323844500234
-collection-cran\output-english-CountScorer-text_and_title.tsv	0.0359134915098
-collection-cran\output-english-TfIdfScorer-text_and_title.tsv	0.22537221893
-collection-cran\output-stopwords-BM25Scorer-text_and_title.tsv	0.322653280474
-collection-cran\output-stopwords-CountScorer-text_and_title.tsv	0.20065285491
-collection-cran\output-stopwords-TfIdfScorer-text_and_title.tsv	0.21684307581
+collection-cran/output-default-CountScorer-text_and_title.tsv	0.0290467379856
+collection-cran/output-default-TfIdfScorer-text_and_title.tsv	0.21199297455
+collection-cran/output-english-CountScorer-text_and_title.tsv	0.0359134915098
+collection-cran/output-stopwords-TfIdfScorer-text_and_title.tsv	0.21684307581
+collection-cran/output-default-BM25Scorer-text_and_title.tsv	0.303119357166
+collection-cran/output-english-TfIdfScorer-text_and_title.tsv	0.22537221893
+collection-cran/output-stopwords-CountScorer-text_and_title.tsv	0.20065285491
+collection-cran/output-stopwords-BM25Scorer-text_and_title.tsv	0.322653280474
+collection-cran/output-english-BM25Scorer-text_and_title.tsv	0.323844500234
