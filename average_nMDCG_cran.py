@@ -5,7 +5,7 @@ import sys
 import glob,os
 import csv
 
-gt=pd.DataFrame.from_csv("Cranfield_DATASET\cran_Ground_Truth.tsv",sep="\t")
+gt=pd.DataFrame.from_csv("Cranfield_DATASET/cran_Ground_Truth.tsv",sep="\t")
 
 def file_list():
     l=[]
