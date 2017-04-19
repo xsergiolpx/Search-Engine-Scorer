@@ -10,7 +10,7 @@ gt=pd.DataFrame.from_csv("Time_DATASET/time_Ground_Truth.tsv",sep="\t")
 def file_list():
     l=[]
     os.chdir(".")
-    for file in glob.glob("collection-time/*text_and_title*"):
+    for file in glob.glob("collection-time/*text.tsv*"):
         l.append(file)
     return l
 
@@ -43,7 +43,8 @@ k=int(sys.argv[1])
 def nMDCG(query,k):
     rel=[0]
     finale=[0]
-    for a in range(1,226):
+    z=pd.DataFrame.from_csv(docs[i],sep="\t",index_col=None)
+    for a in range(1,len(z.iloc[:,0].unique())+1):
         m=maxMDCG(k,a)
         if m==0:
             m=m+0.00001
@@ -56,7 +57,7 @@ def nMDCG(query,k):
             else:
                 iniz=0
         except:
-            iniz=0
+            pass
         rel.append(iniz)
 
         for j in range (1,k):
@@ -65,7 +66,7 @@ def nMDCG(query,k):
                     s=1/math.log(j+1,2)
                     so.append(s)
             except:
-                so.append(0)
+                pass
         fin=rel[a]+sum(so)
         finale.append(fin/m)
     return(np.mean(finale[1:]))
