@@ -37,10 +37,10 @@ python raverage.py --cran
 python raverage.py --time
 
 # The results are saved in collection-cran/results-cran.tsv and colletion-time/results-time.tsv
-# To see the Average R-Precision of the 9 asked files in the homework run:
-cat collection-cran/results_cran.tsv | grep "text_and_title\|fagins" > collection-cran/results_cran_9_files.tsv; cat collection-cran/results_cran_9_files.tsv
+# To see the Average R-Precision of the 9+1+1 asked files in the homework run:
+cat collection-cran/results_cran.tsv | grep "text_and_title\|fagins\|threshold" > collection-cran/results_cran_11_files.tsv; cat collection-cran/results_cran_11_files.tsv
 
-cat collection-time/results_time.tsv | grep "text_and_title\|fagins" > collection-time/results_time_9_files.tsv; cat collection-time/results_time_9_files.tsv
+cat collection-time/results_time.tsv | grep "text_and_title\|fagins\|threshold" > collection-time/results_time_9_files.tsv; cat collection-time/results_time_9_files.tsv
 
 
 # To run the average nMDCG:
