@@ -10,10 +10,12 @@ source set-my-classpath-homework.sh
 
 # Then to run the homework with the cran colletion run
 . inverted-index.sh --cran
+
 . scores.sh --cran
 
 # To run the homework with the time colletion run instead
-. inverted-index.sh --time         
+. inverted-index.sh --time      
+
 . scores.sh --time
 
 # To create the output file of the Fagin's algorithm for the cran colletion run
@@ -37,20 +39,25 @@ python raverage.py --time
 # The results are saved in collection-cran/results-cran.tsv and colletion-time/results-time.tsv
 # To see the Average R-Precision of the 9 asked files in the homework run:
 cat collection-cran/results_cran.tsv | grep "text_and_title\|fagins" > collection-cran/results_cran_9_files.tsv; cat collection-cran/results_cran_9_files.tsv
+
 cat collection-time/results_time.tsv | grep "text_and_title\|fagins" > collection-time/results_time_9_files.tsv; cat collection-time/results_time_9_files.tsv
 
 
 # To run the average nMDCG:
 python average_nMDCG_cran.py 1
+
 python average_nMDCG_time.py 1
 
 python average_nMDCG_cran.py 3
+
 python average_nMDCG_time.py 3
 
 python average_nMDCG_cran.py 5
+
 python average_nMDCG_time.py 5
 
 python average_nMDCG_cran.py 10
+
 python average_nMDCG_time.py 10
 
 # Where the last number is k, change that number to try more values of k
